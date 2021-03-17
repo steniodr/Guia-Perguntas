@@ -1,0 +1,39 @@
+body{
+    background-image: url('/img/background-questions.gif');
+    background-size: cover;
+}
+
+.form-question {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    background: rgb(82,81,83, 0.6);
+    border: 4px solid #02BC25;
+    border-radius: 10px;
+}
+
+.botao {
+    background-color: #02BC25;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 15px 30px;
+    margin-right: 15px;
+    font-size: 20px;
+
+    cursor: pointer;
+    transition: .3s ease all;
+}
+
+.botao:hover {
+    background-color: #02BC25;
+    color: #000000;
+}
+
+.bg-custom {
+    background-color: rgba(35, 35, 35, 0.9);
+    border-bottom: 4px solid #02BC25;
+}
