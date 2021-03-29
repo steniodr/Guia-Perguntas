@@ -4,10 +4,10 @@
     Primeiro projeto do curso <b><a href="https://www.udemy.com/course/formacao-nodejs" target="_blank" rel="site-formação-node" style="color: #EB5352">Formação Node.js</a></b> da  Udemy.
 </p>
 <p>
-    Consiste em uma Plataforma de Perguntas e Respostas, estilo <a href="https://www.udemy.com/course/formacao-nodejs" target="_blank" rel="site-yahoo-respostas" style="color: #6000D2">Yahoo Respostas</a>, de forma mais simplificada.
+    Consiste em uma Plataforma de Perguntas e Respostas, estilo <a href="https://br.answers.yahoo.com" target="_blank" rel="site-yahoo-respostas" style="color: #6000D2">Yahoo Respostas</a>, de forma mais simplificada.
 </p>   
 
-<p>
+<p
     É utilizado nesse projeto, diversos ensinamentos aprendidos anteriormente no curso, como:
 
 <ul>
