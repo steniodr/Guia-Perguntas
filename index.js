@@ -12,4 +12,4 @@ app.get('/perguntar', (req, res) =>{
     res.render('perguntar');
 })
 
-app.listen(8080, ()=>{console.log('App rodando na porta 8080.');})
+app.listen(8181, ()=>{console.log('App rodando na porta 8181.');})
