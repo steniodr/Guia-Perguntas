@@ -4,12 +4,15 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+var title;
 app.get('/', (req, res) => {
-    res.render('index')
+    title = 'Any Ques!ion?';
+    res.render('index', {title: title})
 });
 
 app.get('/perguntar', (req, res) =>{
-    res.render('perguntar');
+    title = 'Faça sua pergunta';
+    res.render('perguntar', {title: title});
 })
 
 app.listen(8181, ()=>{console.log('App rodando na porta 8181.');})
