@@ -5,22 +5,22 @@
 <body>
     <%- include ('./partials/navbar.ejs') %>
     <div class="container">
-        <form action="#" class="form-question mt-5">
+        <form action="/salvar-pergunta" class="form-question mt-5" method="POST">
             <div>
                 <h1 class="h3 mt-3 mb-3 fw-normal text-center text-light">Faça a sua pergunta</h1>
             </div>
             <div class="row">
                 <div class="mb-3 col-md-12">
                     <label for="titulo" class="form-label h5 text-light">Titulo</label>
-                    <input type="text" class="form-control" id="titulo" required>
+                    <input type="text" class="form-control" id="titulo" name="titulo" required>
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="descricao" class="form-label h5 text-light">Descrição</label>
-                    <textarea name="descricao" id="descricao" class="form-control" placeholder="Descreva a sua pergunta de forma clara e objetiva." required></textarea>
+                    <textarea name="descricao" id="descricao" class="form-control" name="descricao" placeholder="Descreva a sua pergunta de forma clara e objetiva." required></textarea>
                 </div>
                 <div class="md-3 col-md-12">
                     <label for="autor" class="form-label h5 text-light">Autor</label>
-                    <input type="text" class="form-control" id="autor" placeholder="Deixe seu nome completo para sabermos quem perguntou">
+                    <input type="text" class="form-control" id="autor" name="autor" placeholder="Deixe seu nome completo para sabermos quem perguntou">
                     <small id="autorDescricao" class="h6 form-text text-light"> * Não obrigatório </small>
                 </div>
             </div>
