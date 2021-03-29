@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include ('./partials/header.ejs') %>
+
+<body>
+    <div class="col-md-12">
+        <div class="modal fade" id="modal-alert" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-custom">
+                        <div class="modal-body">
+                            <p class="mt-3 text-custom text-center">Pergunta salva com sucesso!</p>
+                            <p class="mt-3 text-custom text-center">Você será redirecionado em breve</p>
+                            <p class="mt-3 text-custom text-center">Por favor aguarde...</p>
+                            <div class="text-center">
+                                <img src="../img/any-questions.png" alt="any-questions-logo" width="80%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include ('./partials/footer.ejs') %>
+<script>
+    $('#modal-alert').modal('show');
+    setTimeout(()=>{
+       document.location.replace('/');
+    }, 5000)
+</script>
+
+</html>
