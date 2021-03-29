@@ -6,7 +6,7 @@ app.use(express.static('public'));
 
 var title;
 app.get('/', (req, res) => {
-    title = 'Any Ques!ion?';
+    title = 'Any Quest!ons?';
     res.render('index', {title: title})
 });
 
