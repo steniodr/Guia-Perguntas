@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include ('./partials/header.ejs') %>
+
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+    <div class="container mt-3 pt-3 mb-3 pb-3">
+        <div class="row bg-custom" style="padding: 50px;">
+            <div class="col-md-12">
+                <h3 class="display-4 text-center font-weight-bold" style="color: #ffffff;">Todas as Perguntas!</h3>
+            </div>
+
+            <% perguntas.forEach((pergunta, index) => { %>
+            <div class="col-md-6">
+                <div class="card bg-light mt-5 pt-3">
+                    <h5 class="card-header">Pergunta Nº<%= index + 1 %></h5>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= pergunta.titulo %></h5>
+                        <p class="card-text text-muted font-weight-bold">Autor: <%= pergunta.autor %></p>
+                        <a href="pergunta/<%= pergunta.id %>"><button class="btn botao">Visualizar detalhes</button></a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+<%- include ('./partials/footer.ejs') %>
+</html>

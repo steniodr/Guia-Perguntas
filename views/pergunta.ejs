@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include ('./partials/header.ejs') %>
+
+<body>
+    <%- include ('./partials/navbar.ejs') %>
+    <div class="container mt-3 pt-3 mb-3">
+        <div class="row bg-custom" style="padding: 50px; color: white;">
+            <div class="col-md-12">
+                <h2 class="display-4 text-center font-weight-bold">Pagina da Pergunta</h2>
+            </div>
+            <div class="col-md-12 mt-3" style="color: black;">
+                <div class="card bg-light mt-5 pt-3" style="border: 5px solid #02BC25;">
+                    <div class="card-body">
+                        <h2 class="card-title font-weight-bold"><%= pergunta.titulo %></h2>
+                        <p class="card-text text-custom mt-3"><%= pergunta.descricao %></p>
+                        <p class="card-text text-custom text-muted font-weight-bold mt-3">Autor: <%= pergunta.autor %>
+                        </p>
+                        <button id="buttonShowForm" class="btn botao" onclick="showForm()">Responder</button>
+                        <button id="buttonShowResponses" class="btn botao" onclick="showResponses()">Exibir
+                            Respostas</button>
+                    </div>
+                </div>
+            </div>
+            <form id="form-response" action="/salvar-resposta" class="mt-5" method="POST" hidden>
+                <div class="col-md-12">
+                    <label for="corpo" class="form-label text-custom">Resposta</label>
+                </div>
+                <div class="col-md-12 ml-10">
+                    <textarea name="corpo" class="form-control text-custom mt-3" cols="150" rows="7"
+                        placeholder="Digite a sua resposta..."></textarea>
+                </div>
+
+                <div class="col-md-12">
+                    <label for="autor_resposta" class="form-label text-custom mt-3">Autor da Resposta</label>
+                    <input type="text" class="form-control" id="autor_resposta" name="autor_resposta"
+                        placeholder="Deixe seu nome completo para sabermos quem respondeu">
+                    <small id="autorDescricao" class="h6 form-text"> * Não obrigatório </small>
+                </div>
+
+                <div class="col-md-12">
+                    <input type="text" name="perguntaID" value="<%= pergunta.id %>" hidden>
+                </div>
+
+                <div class="col-md-12 ml-10 mt-5">
+                    <button type="submit" class="btn botao">Enviar Resposta</button>
+                </div>
+            </form>
+            <div class="row mt-5" id="div-responses" hidden>
+                <% if (respostas.length > 0) { %>
+                <div class="col-md-12">
+                    <h2 class="text-center font-weight-bold">Respostas</h2>
+                </div>
+                <% respostas.forEach((resposta, index) => { %>
+                <div class="col-md-6" style="color: black;">
+                    <div class="card bg-light mt-5 pt-3" style="border: 5px solid #02BC25;">
+                        <div class="card-body">
+                            <h2 class="card-title font-weight-bold">Resposta Nº<%= index + 1 %></h2>
+                            <p class="card-text text-custom mt-3"><%= resposta.corpo %></p>
+                            <p class="card-text text-custom text-muted font-weight-bold mt-3">Autor:
+                                <%= resposta.autor_resposta %></p>
+                        </div>
+                    </div>
+                </div>
+                <% })%>
+                <% } else { %>
+                <div class="col-md-12">
+                    <h3 class="text-center font-weight-bold">Ainda não há respostas para essa pergunta</h3>
+                </div>
+                <% }%>
+
+            </div>
+        </div>
+    </div>
+</body>
+<%- include ('./partials/footer.ejs') %>
+<script>
+    function showForm() {
+        let form = document.getElementById('form-response');
+        let buttonShowForm = document.getElementById('buttonShowForm');
+        console.log(form.hidden);
+        if (form.hidden) {
+            form.hidden = false;
+        } else {
+            form.hidden = true;
+        };
+    }
+
+    function showResponses() {
+        let divResponse = document.getElementById('div-responses');
+        let buttonShowResponses = document.getElementById('buttonShowResponses');
+        if (divResponse.hidden) {
+            divResponse.hidden = false;
+        } else {
+            divResponse.hidden = true;
+        }
+    }
+</script>
+
+</html>
