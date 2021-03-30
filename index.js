@@ -36,11 +36,13 @@ app.get('/todas-perguntas', (re, res)=>{
 
     Pergunta.findAll({ raw: true, order:[['id', 'DESC']]}).then(perguntas =>{
         res.render('todas-perguntas', {title: title, perguntas: perguntas})
+    }).catch(() =>{
+        title = 'Erro encontrado';
+        res.render('errors', {title: title});
     })
 })
 
 app.get('/pergunta/:id', (req, res) => {
-
     var id = req.params.id;
     Pergunta.findOne({
         where: {id: id}
@@ -53,13 +55,14 @@ app.get('/pergunta/:id', (req, res) => {
             }).then(respostas => {
                 res.render('pergunta', {title: title, pergunta: pergunta, respostas: respostas});
             })
-
         } else{
             title = 'Erro encontrado';
             res.render('errors', {title: title});
         }
+    }).catch(() =>{
+        title = 'Erro encontrado';
+        res.render('errors', {title: title});
     })
-
 })
 
 app.post('/salvar-pergunta', (req, res) =>{
@@ -76,6 +79,9 @@ app.post('/salvar-pergunta', (req, res) =>{
     }).then(() => {
         title = 'Pergunta salva com sucesso!'
         res.render('success-response', {title: title})
+    }).catch(() =>{
+        title = 'Erro encontrado';
+        res.render('errors', {title: title});
     })
 })
 
@@ -93,6 +99,9 @@ app.post('/salvar-resposta', (req, res) =>{
     }).then(() =>{
         title = 'Resposta salva com sucesso!'
         res.render('success-response', {title: title})
+    }).catch(() =>{
+        title = 'Erro encontrado';
+        res.render('errors', {title: title});
     })
 })
 
